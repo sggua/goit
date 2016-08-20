@@ -9,19 +9,19 @@ public class HomeWork20160820 {
     }
 
     static int getMin(int[] nums) {
-        int min=0;
+        int min=nums[0];
         for (int num:nums ) if (num<min) min=num;
         return min;
     }
 
     static int getMax(int[] nums) {
-        int max=0;
+        int max=nums[0];
         for (int num:nums ) if (num>max) max=num;
         return max;
     }
 
     static int getMaxPositive(int[] nums) {
-        int maxPos=0;
+        int maxPos=nums[0];
         for (int num:nums ) if (num>0 && num>maxPos) maxPos=num;
         return maxPos;
     }
@@ -38,8 +38,8 @@ public class HomeWork20160820 {
 
 
     public static void main(String[] args) {
-        int[] numbers = {-21,4,-5,-6,7,
-                        1,17,-12,11,6};
+        int[] numbers = {21,4,5,6,7,
+                        1,17,12,11,6};
         System.out.println("sum: " + getSum(numbers));
         System.out.println("min: " + getMin(numbers));
         System.out.println("max: " + getMax(numbers));
