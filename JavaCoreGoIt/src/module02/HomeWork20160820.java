@@ -38,8 +38,8 @@ public class HomeWork20160820 {
 
 
     public static void main(String[] args) {
-        int[] numbers = {2,4,-5,-6,7,
-                        1,17,-12,11,2};
+        int[] numbers = {-21,4,-5,-6,7,
+                        1,17,-12,11,6};
         System.out.println("sum: " + getSum(numbers));
         System.out.println("min: " + getMin(numbers));
         System.out.println("max: " + getMax(numbers));
