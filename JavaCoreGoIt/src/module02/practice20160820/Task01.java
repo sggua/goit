@@ -1,8 +1,8 @@
 package module02.practice20160820;
 
-public class Task01 {
+class Task01 {
 
-    static int balancesSum(int[] ints){
+    private static int balancesSum(int[] ints){
         int sum=0;
         for (int anInt : ints) {
             if (anInt > 1000 && anInt < 5000) {
@@ -12,7 +12,7 @@ public class Task01 {
         return(sum);
     }
 
-    static String[] getOwnerNames (int[] balances, String[] names){
+    private static String[] getOwnerNames(int[] balances, String[] names){
         int len = balances.length;
         int resCount=0;
         String[] result1 =new String[len];
@@ -23,17 +23,15 @@ public class Task01 {
         }
 
         String[] result2 = new String[resCount];
-        for (int i=0; i<resCount; i++) {
-            result2[i]=result1[i];
-        }
+        System.arraycopy(result1, 0, result2, 0, resCount);
 
         return result2;
     }
 
     public static void main(String[] args) {
-        int variable = 4;
+//        int variable = 4;
 
-        String [] ownerNames = {"Alex","Bob","Caren","Dude","Eagle","Foo","Gine","Hook","Irene","Joe" };
+        String [] ownerNames = {"Alex","Bob","Caren","Dude","Eagle","Foo","Gone","Hook","Irene","Joe" };
         int[] balances = {  2341,2305,  1456, 239,456, 5674, 347, 87653,2345,567};
         int[] balances2 = {  20341,205,  2456, 1239,4056, 574, 47, 1653,235,5267};
 

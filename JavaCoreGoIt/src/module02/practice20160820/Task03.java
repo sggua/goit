@@ -1,8 +1,8 @@
 package module02.practice20160820;
 
-public class Task03 {
+class Task03 {
 
-    static double testWithdraw(double bal, double withdraw, double tax){
+    private static double testWithdraw(double bal, double withdraw, double tax){
         return bal - tax - withdraw;
     }
 
