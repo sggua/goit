@@ -31,7 +31,7 @@ internal fun getOwnerNames(balances: IntArray, names: Array<String>): Array<Stri
 fun main(args: Array<String>){
 
     val variable = 4
-    val ownerNames = arrayOf("Alex", "Bob", "Caren", "Dude", "Eagle", "Foo", "Gine", "Hook", "Irene", "Joe")
+    val ownerNames = arrayOf("Alex", "Bob", "Caren", "Dude", "Eagle", "Foo", "Gone", "Hook", "Irene", "Joe")
     val balances = intArrayOf(2341, 2305, 1456, 239, 456, 5674, 347, 87653, 2345, 567)
     val balances2 = intArrayOf(20341, 205, 2456, 1239, 4056, 574, 47, 1653, 235, 5267)
 
