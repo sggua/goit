@@ -1,6 +1,14 @@
 package module02;
 
+import java.util.Arrays;
+
 public class HomeWork23by20160822 {
+
+    private static String[] ownerNames = {
+            "Alex", "Bob", "Caren", "Dude", "Eagle", "Foo", "Gone", "Hook", "Irene", "Joe"
+    };
+    private static double[] balances = {234.1, 230.5, 145.6, 51.0, 45.6, 567.4, 34.7, 876.53, 234.5, 56.7};
+    private static double commission = 5;  // %
 
     private static String withdraw(
             double withdraw, String name, double[] balances, String[] names, double commission) {
@@ -12,7 +20,8 @@ public class HomeWork23by20160822 {
 
             if (withdrawTestResult >= 0) {
                 double sumOfWithdraw = balance - withdrawTestResult;
-                return name + " " + sumOfWithdraw + " " + withdrawTestResult;
+                balances[nameIndex] = withdrawTestResult;
+                return name + " " + sumOfWithdraw + " " + balances[nameIndex];
             } else {
                 return name + " NO";
             }
@@ -38,9 +47,9 @@ public class HomeWork23by20160822 {
 
 
     public static void main(String[] args) {
-        String[] ownerNames = {"Alex", "Bob", "Caren", "Dude", "Eagle", "Foo", "Gone", "Hook", "Irene", "Joe"};
-        double[] balances = {234.1, 230.5, 145.6, 51.0, 45.6, 567.4, 34.7, 876.53, 234.5, 56.7};
-        double commission = 5;  // %
+
+        System.out.println(Arrays.toString(ownerNames));
+        System.out.println(Arrays.toString(balances));
 
         System.out.println(withdraw(50, "Alex", balances, ownerNames, commission));
         System.out.println(withdraw(50, "Caren", balances, ownerNames, commission));
@@ -48,5 +57,6 @@ public class HomeWork23by20160822 {
         System.out.println(withdraw(50, "Dude", balances, ownerNames, commission));
         System.out.println(withdraw(50, "Hook", balances, ownerNames, commission));
 
+        System.out.println(Arrays.toString(balances));
     }
 }
