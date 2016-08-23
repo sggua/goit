@@ -2,7 +2,7 @@ package module02;
 
 public class HomeWork22By20160822 {
 
-    static double withdrawBalance(double balance, double withdraw, double commission) {
+    private static double withdrawBalance(double balance, double withdraw, double commission) {
         return balance - withdraw - withdraw * commission / 100;
     }
 
