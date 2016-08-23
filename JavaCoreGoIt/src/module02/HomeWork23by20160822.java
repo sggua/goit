@@ -11,24 +11,30 @@ public class HomeWork23by20160822 {
     private static double commission = 5;  // %
 
     private static String withdrawResult(String ownerName, double withdrawal) {
-        double withdrawTestResult = withdrawBalance(ownerName, withdrawal);
-        if (withdrawTestResult >= 0) {
-            int nameIndex = getNameIndex(ownerNames, ownerName);
-            balances[nameIndex] = withdrawTestResult;
-            return ownerName + " " + withdrawal + " " + balances[nameIndex];
+        int nameIndex = getNameIndex(ownerNames, ownerName);
+        if (nameIndex >= 0) {
+            double balanceBeforeWithdraw = balances[nameIndex];
+            double withdrawTestResult = withdrawBalance(ownerName, withdrawal);
+            if (withdrawTestResult >= 0) {
+                double sumOfWithdraw = balanceBeforeWithdraw - withdrawTestResult;
+                return ownerName + " " + sumOfWithdraw + " " + withdrawTestResult;
+            }
         } else {
-            return ownerName + " NO";
+            return ownerName + "'s balance probably doesn't exist";
         }
+        return ownerName + " NO";
     }
 
     private static double withdrawBalance(String ownerName, double withdrawal) {
         int nameIndex = getNameIndex(ownerNames, ownerName);
         if (nameIndex >= 0) {
-            double balance = balances[nameIndex];
-            return withdrawCheck(balance, withdrawal);
-        } else {
-            return -1;
+            double withdrawTestResult = withdrawCheck(balances[nameIndex], withdrawal);
+            if (withdrawTestResult >= 0) {
+                balances[nameIndex] = withdrawTestResult;
+                return balances[nameIndex];
+            }
         }
+        return -1;
     }
 
     private static int getNameIndex(String[] names, String name) {
@@ -41,8 +47,7 @@ public class HomeWork23by20160822 {
     }
 
     private static double withdrawCheck(double balance, double withdrawal) {
-        double commissionMoney = withdrawal * commission / 100;
-        return balance - withdrawal - commissionMoney;
+        return balance - withdrawal - withdrawal * commission / 100;
     }
 
 
