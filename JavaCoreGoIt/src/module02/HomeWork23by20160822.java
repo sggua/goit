@@ -58,7 +58,7 @@ public class HomeWork23by20160822 {
 
         System.out.println(withdrawResult("Alex", 50));
         System.out.println(withdrawResult("Caren", 50));
-        System.out.println(withdrawResult("Daniel", 50)); // not exist in ownerNames
+        System.out.println(withdrawResult("Daniel", 50)); // not exists in ownerNames
         System.out.println(withdrawResult("Dude", 50));
         System.out.println(withdrawResult("Hook", 50));
 
