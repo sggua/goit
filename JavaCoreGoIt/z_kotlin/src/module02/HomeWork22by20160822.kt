@@ -1,10 +1,13 @@
 package module02
 
-private fun withdrawResult(bal: Double, withdraw: Double, commission: Double): String {
-    val commissionMoney = withdraw * commission / 100
-    val result = bal - withdraw - commissionMoney
+private fun withdrawBalance(balance: Double, withdraw: Double, commission: Double): Double {
+    return balance - withdraw - withdraw * commission / 100
+}
+
+private fun withdrawResult(balance: Double, withdraw: Double, commission: Double): String {
+    val result = withdrawBalance(balance, withdraw, commission)
     if (result >= 0) {
-        return "OK $commissionMoney $result"
+        return "OK " + withdraw * commission / 100 + " " + result
     } else
         return "NO"
 }
