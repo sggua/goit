@@ -23,7 +23,7 @@ public class HomeWork24by20160823 {
     }
 
     private static double fundBalance(String ownerName, double fund) {
-        int nameIndex = getNameIndex(ownerNames, ownerName);
+        int nameIndex = getNameIndex(ownerName);
         if (nameIndex >= 0 && fund > 0) {
             return fundBalanceByIndex(nameIndex, fund);
         } else {
@@ -31,9 +31,9 @@ public class HomeWork24by20160823 {
         }
     }
 
-    private static int getNameIndex(String[] names, String ownerName) {
-        for (int i = 0; i < names.length; i++) {
-            if (names[i].equals(ownerName)) {
+    private static int getNameIndex(String ownerName) {
+        for (int i = 0; i < ownerNames.length; i++) {
+            if (ownerNames[i].equals(ownerName)) {
                 return i;
             }
         }
