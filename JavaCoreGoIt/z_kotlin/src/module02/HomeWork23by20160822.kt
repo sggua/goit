@@ -6,25 +6,25 @@ private val ownerNames = arrayOf("Alex", "Bob", "Caren", "Dude", "Eagle", "Foo",
 private val balances = doubleArrayOf(234.1, 230.5, 145.6, 51.0, 45.6, 567.4, 34.7, 876.53, 234.5, 56.7)
 private val commission = 5.0  // %
 
-private fun withdraw(
-        withdraw: Double, name: String, balances: DoubleArray, names: Array<String>, commission: Double): String {
+private fun withdrawResult(ownerName: String, withdrawal: Double): String {
+    val withdrawTestResult = withdrawBalance(ownerName, withdrawal)
+    if (withdrawTestResult >= 0) {
+        val nameIndex = getNameIndex(ownerNames, ownerName)
+        balances[nameIndex] = withdrawTestResult
+        return ownerName + " " + withdrawal + " " + balances[nameIndex]
+    } else {
+        return ownerName + " NO"
+    }
+}
 
-    val nameIndex = getNameIndex(names, name)
+private fun withdrawBalance(ownerName: String, withdrawal: Double): Double {
+    val nameIndex = getNameIndex(ownerNames, ownerName)
     if (nameIndex >= 0) {
         val balance = balances[nameIndex]
-        val withdrawTestResult = withdrawCheck(balance, withdraw, commission)
-
-        if (withdrawTestResult >= 0) {
-            val sumOfWithdraw = balance - withdrawTestResult
-            balances[nameIndex] = withdrawTestResult
-            return "$name $sumOfWithdraw " + balances[nameIndex]
-        } else {
-            return "$name NO"
-        }
+        return withdrawCheck(balance, withdrawal)
     } else {
-        return "$name not found"
+        return -1.0
     }
-
 }
 
 private fun getNameIndex(names: Array<String>, name: String): Int {
@@ -36,9 +36,9 @@ private fun getNameIndex(names: Array<String>, name: String): Int {
     return -1 // if not found
 }
 
-private fun withdrawCheck(balance: Double, withdraw: Double, commission: Double): Double {
-    val commissionMoney = withdraw * commission / 100
-    return balance - withdraw - commissionMoney
+private fun withdrawCheck(balance: Double, withdrawal: Double): Double {
+    val commissionMoney = withdrawal * commission / 100
+    return balance - withdrawal - commissionMoney
 }
 
 
@@ -46,11 +46,11 @@ fun main(args: Array<String>) {
     println(Arrays.toString(ownerNames))
     println(Arrays.toString(balances))
 
-    println(withdraw(50.0, "Alex", balances, ownerNames, commission))
-    println(withdraw(50.0, "Caren", balances, ownerNames, commission))
-    println(withdraw(50.0, "Daniel", balances, ownerNames, commission))
-    println(withdraw(50.0, "Dude", balances, ownerNames, commission))
-    println(withdraw(50.0, "Hook", balances, ownerNames, commission))
+    println(withdrawResult("Alex", 50.0))
+    println(withdrawResult("Caren", 50.0))
+    println(withdrawResult("Daniel", 50.0)) // not exist in ownerNames
+    println(withdrawResult("Dude", 50.0))
+    println(withdrawResult("Hook", 50.0))
 
     println(Arrays.toString(balances))
 }
