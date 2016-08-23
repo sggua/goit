@@ -10,25 +10,25 @@ public class HomeWork23by20160822 {
     private static double[] balances = {234.1, 230.5, 145.6, 51.0, 45.6, 567.4, 34.7, 876.53, 234.5, 56.7};
     private static double commission = 5;  // %
 
-    private static String withdraw(
-            double withdraw, String name, double[] balances, String[] names, double commission) {
+    private static String withdrawResult(String ownerName, double withdrawal) {
+        double withdrawTestResult = withdrawBalance(ownerName, withdrawal);
+        if (withdrawTestResult >= 0) {
+            int nameIndex = getNameIndex(ownerNames, ownerName);
+            balances[nameIndex] = withdrawTestResult;
+            return ownerName + " " + withdrawal + " " + balances[nameIndex];
+        } else {
+            return ownerName + " NO";
+        }
+    }
 
-        int nameIndex = getNameIndex(names, name);
+    private static double withdrawBalance(String ownerName, double withdrawal) {
+        int nameIndex = getNameIndex(ownerNames, ownerName);
         if (nameIndex >= 0) {
             double balance = balances[nameIndex];
-            double withdrawTestResult = withdrawCheck(balance, withdraw, commission);
-
-            if (withdrawTestResult >= 0) {
-                double sumOfWithdraw = balance - withdrawTestResult;
-                balances[nameIndex] = withdrawTestResult;
-                return name + " " + sumOfWithdraw + " " + balances[nameIndex];
-            } else {
-                return name + " NO";
-            }
+            return withdrawCheck(balance, withdrawal);
         } else {
-            return name + " not found";
+            return -1;
         }
-
     }
 
     private static int getNameIndex(String[] names, String name) {
@@ -40,9 +40,9 @@ public class HomeWork23by20160822 {
         return -1; // if not found
     }
 
-    private static double withdrawCheck(double balance, double withdraw, double commission) {
-        double commissionMoney = withdraw * commission / 100;
-        return balance - withdraw - commissionMoney;
+    private static double withdrawCheck(double balance, double withdrawal) {
+        double commissionMoney = withdrawal * commission / 100;
+        return balance - withdrawal - commissionMoney;
     }
 
 
@@ -51,11 +51,11 @@ public class HomeWork23by20160822 {
         System.out.println(Arrays.toString(ownerNames));
         System.out.println(Arrays.toString(balances));
 
-        System.out.println(withdraw(50, "Alex", balances, ownerNames, commission));
-        System.out.println(withdraw(50, "Caren", balances, ownerNames, commission));
-        System.out.println(withdraw(50, "Daniel", balances, ownerNames, commission));
-        System.out.println(withdraw(50, "Dude", balances, ownerNames, commission));
-        System.out.println(withdraw(50, "Hook", balances, ownerNames, commission));
+        System.out.println(withdrawResult("Alex", 50));
+        System.out.println(withdrawResult("Caren", 50));
+        System.out.println(withdrawResult("Daniel", 50)); // not exist in ownerNames
+        System.out.println(withdrawResult("Dude", 50));
+        System.out.println(withdrawResult("Hook", 50));
 
         System.out.println(Arrays.toString(balances));
     }
