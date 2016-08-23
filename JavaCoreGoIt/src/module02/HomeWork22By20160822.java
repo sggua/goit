@@ -2,11 +2,14 @@ package module02;
 
 public class HomeWork22By20160822 {
 
-    private static String withdrawResult(double bal, double withdraw, double commission) {
-        double commissionMoney = withdraw * commission / 100;
-        double result = bal - withdraw - commissionMoney;
+    static double withdrawBalance(double balance, double withdraw, double commission) {
+        return balance - withdraw - withdraw * commission / 100;
+    }
+
+    private static String withdrawResult(double balance, double withdraw, double commission) {
+        double result = withdrawBalance(balance, withdraw, commission);
         if (result >= 0) {
-            return "OK " + commissionMoney + " " + result;
+            return "OK " + withdraw * commission / 100 + " " + result;
         } else return "NO";
     }
 
