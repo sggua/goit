@@ -14,7 +14,7 @@ public class HomeWork24by20160823 {
         if (fund > 0) {
             if (resultFund >= 0) {
                 return ownerName + " " + resultFund;
-            } else{
+            } else {
                 return ownerName + "'s balance probably not exists";
             }
         } else {
