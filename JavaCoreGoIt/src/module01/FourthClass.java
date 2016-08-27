@@ -1,4 +1,6 @@
-public class FourthClass {
+package module01;
+
+class FourthClass {
     public static void main(String[] args) {
 
         System.out.println("My fourth class on Java");
