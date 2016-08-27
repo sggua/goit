@@ -3,23 +3,23 @@ package module03.HomeWork31;
 class Bird {
     private String act;
 
-    Bird() {
+    public Bird() {
         this.act = "singing";
     }
 
-    Bird(String act) {
+    public Bird(String act) {
         this.act = act;
     }
 
-    String getAct() {
+    public String getAct() {
         return act;
     }
 
-    void setAct(String act) {
+    public void setAct(String act) {
         this.act = act;
     }
 
-    String sing() {
+    public String sing() {
         return "I am " + act;
     }
 }
