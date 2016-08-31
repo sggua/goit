@@ -2,7 +2,7 @@ package module03.OfflineOn20160831.Task02;
 
 
 public class Converter {
-    private double rate;
+    private final double rate;
 
     public Converter() {
         this(1);
