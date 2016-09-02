@@ -1,5 +1,9 @@
 package module03.HomeWork34;
 
+//  Create User class with the following fields: String name, int balance, int monthsOfEmployment,
+//  String companyName, int salary, String currency.
+//  Create getters and setters and constructor with all fileds.
+
 public class User {
     private String name;
     private int balance;
@@ -7,10 +11,6 @@ public class User {
     private String companyName;
     private int salary;
     private String currency;
-
-    public User() {
-        this("", 0, 0, "", 0, "");
-    }
 
     public User(String name, int balance, int monthsOfEmployment, String companyName, int salary, String currency) {
         this.name = name;
@@ -83,18 +83,18 @@ public class User {
 
     void withdraw(int sum) {
         if (sum < 1000) {
-            this.setBalance(this.getBalance() - sum * 5 / 100);
+            this.balance -= sum * 5 / 100;
         } else {
-            this.setBalance(this.getBalance() - sum * 10 / 100);
+            this.balance -= sum * 10 / 100;
         }
     }
 
     int companyNameLength() {
-        return this.getCompanyName().length();
+        return this.companyName.length();
     }
 
     void monthIncreaser(int addMonth) {
-        this.setMonthsOfEmployment(this.getMonthsOfEmployment() + addMonth);
+        this.monthsOfEmployment += addMonth;
     }
 
 }
