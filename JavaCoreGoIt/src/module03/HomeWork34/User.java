@@ -83,9 +83,9 @@ public class User {
 
     void withdraw(int sum) {
         if (sum < 1000) {
-            this.balance -= sum * 5 / 100;
+            this.balance -= sum * 105 / 100;
         } else {
-            this.balance -= sum * 10 / 100;
+            this.balance -= sum * 110 / 100;
         }
     }
 
