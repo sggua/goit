@@ -5,6 +5,10 @@ public class CollegeStudent extends Student {
     private int rating;
     private long id;
 
+//    Create three constructors:
+//      two the same as in Student
+//      and one with all the fields of the class.
+
     public CollegeStudent(String firstName, String lastName, int group) {
         super(firstName, lastName, group);
     }
@@ -18,11 +22,10 @@ public class CollegeStudent extends Student {
         super(firstName, lastName, group);
         this.setCoursesTaken(coursesTaken);
         this.setAge(age);
-        this.setCollegeName(collegeName);
-        this.setRating(rating);
-        this.setId(id);
+        this.collegeName = collegeName;
+        this.rating = rating;
+        this.id = id;
     }
-
 
     public String getCollegeName() {
         return collegeName;

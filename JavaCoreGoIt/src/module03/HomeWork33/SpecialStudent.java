@@ -4,6 +4,9 @@ public class SpecialStudent extends CollegeStudent {
     private long secretKey;
     private String email;
 
+//    Create three constructors: two the same as in CollegeStudend
+//      and one with secretKey field.
+
     public SpecialStudent(String firstName, String lastName, int group) {
         super(firstName, lastName, group);
     }
@@ -15,7 +18,7 @@ public class SpecialStudent extends CollegeStudent {
     public SpecialStudent(String firstName, String lastName, int group, Course[] coursesTaken, int age,
                           String collegeName, int rating, long id, long secretKey) {
         super(firstName, lastName, group, coursesTaken, age, collegeName, rating, id);
-        this.setSecretKey(secretKey);
+        this.secretKey=secretKey;
     }
 
     public long getSecretKey() {
