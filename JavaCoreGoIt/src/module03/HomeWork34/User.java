@@ -78,7 +78,7 @@ public class User {
       */
 
     void paySalary() {
-        this.setBalance(this.getBalance() + this.getSalary());
+        this.balance += this.salary;
     }
 
     void withdraw(int sum) {
