@@ -14,6 +14,8 @@ public class HomeWork34On20160828 {
         System.out.println(user.getBalance());
         user.withdraw(500);
         System.out.println(user.getBalance());
+        user.withdraw(50000);
+        System.out.println(user.getBalance());
 
         System.out.println(user.companyNameLength());
 
