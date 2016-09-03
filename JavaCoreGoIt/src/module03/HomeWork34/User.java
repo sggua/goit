@@ -78,23 +78,30 @@ public class User {
       */
 
     void paySalary() {
-        this.balance += this.salary;
+        balance += salary;
     }
 
     void withdraw(int sum) {
+        final int withdrawal;
         if (sum < 1000) {
-            this.balance -= sum * 105 / 100;
+            withdrawal = sum * 105 / 100;
         } else {
-            this.balance -= sum * 110 / 100;
+            withdrawal = sum * 110 / 100;
         }
+        if (balance >= withdrawal) {
+            balance -= withdrawal;
+        }else{
+            System.out.println("You can not withdraw " + sum + " due to account limits");
+        }
+
     }
 
     int companyNameLength() {
-        return this.companyName.length();
+        return companyName.length();
     }
 
     void monthIncreaser(int addMonth) {
-        this.monthsOfEmployment += addMonth;
+        monthsOfEmployment += addMonth;
     }
 
 }
