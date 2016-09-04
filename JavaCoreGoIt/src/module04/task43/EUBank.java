@@ -50,13 +50,13 @@ public class EUBank extends Bank {
         if (getCurrency() == Currency.USD) {
             if (withdrawal <= 1000) {
                 return 5;
-            } else if (withdrawal > 1000){
+            } else if (withdrawal > 1000) {
                 return 7;
             }
         } else if (getCurrency() == Currency.EUR) {
             if (withdrawal <= 1000) {
                 return 2;
-            } else if (withdrawal > 1000){
+            } else if (withdrawal > 1000) {
                 return 4;
             }
         }

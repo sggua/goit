@@ -50,13 +50,13 @@ public class ChinaBank extends Bank {
         if (getCurrency() == Currency.USD) {
             if (withdrawal <= 1000) {
                 return 3;
-            } else if (withdrawal > 1000){
+            } else if (withdrawal > 1000) {
                 return 5;
             }
         } else if (getCurrency() == Currency.EUR) {
             if (withdrawal <= 1000) {
                 return 10;
-            } else if (withdrawal > 1000){
+            } else if (withdrawal > 1000) {
                 return 11;
             }
         }
