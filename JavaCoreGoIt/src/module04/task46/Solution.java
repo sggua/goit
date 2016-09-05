@@ -28,12 +28,14 @@ public class Solution {
 
         printUsers(users);
 
-        BankSystemImpl bankSystem = new BankSystemImpl();
+        BankSystem bankSystem = new BankSystemImpl();
 
         for (int i = 0; i < users.length; i++) {
             bankSystem.paySalary(users[i]);
             bankSystem.transferMoney(users[5], users[i], 900);
+            bankSystem.transferMoney(users[5], users[i], 50);
             bankSystem.fundUser(users[i], 1500);
+            bankSystem.fundUser(users[i], 500);
             bankSystem.withdrawOfUser(users[i],500);
         }
 
