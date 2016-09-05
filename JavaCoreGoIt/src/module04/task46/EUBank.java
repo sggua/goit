@@ -61,6 +61,7 @@ public class EUBank extends Bank {
         }
         return 0;
     }
+
     public double getWithdrawal() {
         return withdrawal;
     }

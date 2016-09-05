@@ -1,6 +1,9 @@
 package module04.task46;
 
 public class BankSystemImpl implements BankSystem {
+    public BankSystemImpl() {
+    }
+
     @Override
     public void withdrawOfUser(User user, int amount) {
         int maxWithdrawal = user.getBank().getLimitOfWithdrawal();
@@ -9,7 +12,7 @@ public class BankSystemImpl implements BankSystem {
         if (amount + commission <= maxWithdrawal) {
             user.balance -= amount - commission;
         } else {
-            System.out.println("Max allowed withdraw ("+user.name+") : " + maxWithdrawal);
+            System.out.println("Max allowed withdraw (" + user.name + ") : " + maxWithdrawal);
         }
     }
 
@@ -19,7 +22,7 @@ public class BankSystemImpl implements BankSystem {
         if (amount <= maxFund) {
             user.balance += amount;
         } else {
-            System.out.println("Max allowed amount of funding ("+user.name+") : " + maxFund);
+            System.out.println("Max allowed amount of funding (" + user.name + ") : " + maxFund);
         }
     }
 
@@ -32,8 +35,5 @@ public class BankSystemImpl implements BankSystem {
     @Override
     public void paySalary(User user) {
         fundUser(user, user.salary);
-    }
-
-    public BankSystemImpl() {
     }
 }

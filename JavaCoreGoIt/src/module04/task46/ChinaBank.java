@@ -8,7 +8,6 @@ commission - 3% if USD and up to 1000, 5% if USD and more than 1000
 10% if EUR and up to 1000 and 11% if EUR and more than 1000
  */
 public class ChinaBank extends Bank {
-    double withdrawal;
 
     public ChinaBank(long id, String bankCountry, Currency currency, int numberOfEmployees,
                      double avrSalaryOfEmployee, long rating, long totalCapital) {
@@ -62,6 +61,7 @@ public class ChinaBank extends Bank {
         }
         return 0;
     }
+
     public double getWithdrawal() {
         return withdrawal;
     }

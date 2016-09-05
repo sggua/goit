@@ -8,7 +8,6 @@ package module04.task46;
  6% if EUR and up to 1000 and 8% if EUR and more than 1000
  */
 public class USBank extends Bank {
-    double withdrawal;
 
     public USBank(long id, String bankCountry, Currency currency, int numberOfEmployees,
                   double avrSalaryOfEmployee, long rating, long totalCapital) {
