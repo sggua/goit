@@ -8,6 +8,7 @@ abstract public class Bank {
     double avrSalaryOfEmployee;
     long rating;
     long totalCapital;
+    double withdrawal;
 
     public Bank(long id, String bankCountry, Currency currency, int numberOfEmployees,
                 double avrSalaryOfEmployee, long rating, long totalCapital) {
@@ -83,6 +84,10 @@ abstract public class Bank {
     public abstract int getMonthlyRate();
 
     public abstract int getCommission();
+
+    public abstract double getWithdrawal();
+
+    public abstract void setWithdrawal(double withdrawal);
 
     public double moneyPaidMonthlyForSalary() {
         return numberOfEmployees * avrSalaryOfEmployee;

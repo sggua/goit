@@ -4,8 +4,10 @@ public class BankSystemImpl implements BankSystem {
     @Override
     public void withdrawOfUser(User user, int amount) {
         int maxWithdrawal = user.getBank().getLimitOfWithdrawal();
-        if (amount <= maxWithdrawal) {
-            user.balance -= amount;
+        user.getBank().setWithdrawal(amount);
+        double commission = user.getBank().getCommission();
+        if (amount + commission <= maxWithdrawal) {
+            user.balance -= amount - commission;
         } else {
             System.out.println("Max allowed withdraw ("+user.name+") : " + maxWithdrawal);
         }

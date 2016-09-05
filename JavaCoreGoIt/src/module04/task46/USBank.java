@@ -62,4 +62,12 @@ public class USBank extends Bank {
         }
         return 0;
     }
+
+    public double getWithdrawal() {
+        return withdrawal;
+    }
+
+    public void setWithdrawal(double withdrawal) {
+        this.withdrawal = withdrawal;
+    }
 }

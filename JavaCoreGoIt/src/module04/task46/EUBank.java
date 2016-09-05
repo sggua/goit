@@ -8,7 +8,6 @@ commission - 5% if USD and up to 1000, 7% if USD and more than 1000
 2% if EUR and up to 1000 and 4% if EUR and more than 1000
  */
 public class EUBank extends Bank {
-    double withdrawal;
 
     public EUBank(long id, String bankCountry, Currency currency, int numberOfEmployees,
                   double avrSalaryOfEmployee, long rating, long totalCapital) {
@@ -62,4 +61,12 @@ public class EUBank extends Bank {
         }
         return 0;
     }
+    public double getWithdrawal() {
+        return withdrawal;
+    }
+
+    public void setWithdrawal(double withdrawal) {
+        this.withdrawal = withdrawal;
+    }
+
 }
