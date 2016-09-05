@@ -3,12 +3,22 @@ package module04.task46;
 public class BankSystemImpl implements BankSystem {
     @Override
     public void withdrawOfUser(User user, int amount) {
-        user.balance -= amount;
+        int maxWithdrawal = user.getBank().getLimitOfWithdrawal();
+        if (amount <= maxWithdrawal) {
+            user.balance -= amount;
+        } else {
+            System.out.println("Max allowed withdraw ("+user.name+") : " + maxWithdrawal);
+        }
     }
 
     @Override
     public void fundUser(User user, int amount) {
-        user.balance += amount;
+        int maxFund = user.getBank().getLimitOfFunding();
+        if (amount <= maxFund) {
+            user.balance += amount;
+        } else {
+            System.out.println("Max allowed amount of funding ("+user.name+") : " + maxFund);
+        }
     }
 
     @Override

@@ -19,6 +19,14 @@ public class User {
         this.bank = bank;
     }
 
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
     @Override
     public String toString() {
         String separator = "\n";  //  or ";"
