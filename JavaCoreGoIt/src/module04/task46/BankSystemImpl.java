@@ -28,8 +28,14 @@ public class BankSystemImpl implements BankSystem {
 
     @Override
     public void transferMoney(User fromUser, User toUser, int amount) {
-        withdrawOfUser(fromUser, amount);
-        fundUser(toUser, amount);
+        if (fromUser.getBank().getCurrency().equals(toUser.getBank().getCurrency())) {
+            withdrawOfUser(fromUser, amount);
+            fundUser(toUser, amount);
+        } else {
+            System.out.println("Can not transfer " +
+                    "from " + fromUser.getBank().getCurrency() + " (" + fromUser.name + ") " +
+                    "to " + toUser.getBank().getCurrency() + " (" + toUser.name + ")");
+        }
     }
 
     @Override
