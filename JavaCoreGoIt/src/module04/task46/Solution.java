@@ -18,7 +18,7 @@ public class Solution {
         Bank cnBank = new ChinaBank(3, "China", Currency.USD, 5000, 30_000, 8, 8_500_000_000L);
 
         User[] users = new User[]{
-                new User(1, "Alf", 100.50, 10, "Acme", 10000, usBank),
+                new User(1, "Alf", 10.50, 10, "Acme", 10000, usBank),
                 new User(2, "Bob", 220.30, 12, "Bank of America", 60000, usBank),
                 new User(3, "Chip", 30.33, 14, "Coca Cola", 15000, euBank),
                 new User(4, "Dale", 4024.00, 16, "Dell", 14000, euBank),
@@ -31,12 +31,12 @@ public class Solution {
         BankSystem bankSystem = new BankSystemImpl();
 
         for (int i = 0; i < users.length; i++) {
-            bankSystem.paySalary(users[i]);
+            bankSystem.withdrawOfUser(users[i], 500);
             bankSystem.transferMoney(users[5], users[i], 900);
             bankSystem.transferMoney(users[5], users[i], 50);
             bankSystem.fundUser(users[i], 1500);
             bankSystem.fundUser(users[i], 500);
-            bankSystem.withdrawOfUser(users[i],500);
+            bankSystem.paySalary(users[i]);
         }
 
         printUsers(users);
