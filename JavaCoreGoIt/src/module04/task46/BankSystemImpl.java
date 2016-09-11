@@ -1,14 +1,25 @@
 package module04.task46;
 
 public class BankSystemImpl implements BankSystem {
+
+/*
+    Этот конструктор есть и без того по умолчанию
     public BankSystemImpl() {
     }
+*/
 
     @Override
     public void withdrawOfUser(User user, int amount) {
-        int maxWithdrawal = user.getBank().getLimitOfWithdrawal();
-        user.getBank().setWithdrawal(amount);
-        double commissionSum = (user.getBank().getCommission() / 100.0 + 1.0) * amount;
+        Bank bank = user.getBank(); // <--
+        // Нужно сосиски нарезать в переменные,
+        // представь что по user.getBank() каждый раз идет обращение
+        // в базу за банком юзера и по твоему коду это обращение было 3 раза
+        // каждое обращение в базу стоит обычно сколько то денег
+        // к примеру если она у нас облачная
+
+        int maxWithdrawal = bank.getLimitOfWithdrawal();
+        bank.setWithdrawal(amount);
+        double commissionSum = (bank.getCommission() / 100.0 + 1.0) * amount;
         double testBalance = user.balance - amount - commissionSum;
         if (amount + commissionSum <= maxWithdrawal) {
             if (testBalance >= 0) {
@@ -33,6 +44,9 @@ public class BankSystemImpl implements BankSystem {
 
     @Override
     public void transferMoney(User fromUser, User toUser, int amount) {
+        // Это не совсем так, просто в условии не было конвертера
+        // В правильной задаче вместо amount били бы Money{amount, currency}
+        // и логика была бы куда сложнее
         if (fromUser.getBank().getCurrency().equals(toUser.getBank().getCurrency())) {
             withdrawOfUser(fromUser, amount);
             fundUser(toUser, amount);

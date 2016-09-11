@@ -1,6 +1,7 @@
 package module04.task46;
 
 abstract public class Bank {
+
     long id;
     String bankCountry;
     Currency currency;
@@ -8,7 +9,7 @@ abstract public class Bank {
     double avrSalaryOfEmployee;
     long rating;
     long totalCapital;
-    double withdrawal;
+    double withdrawal; // <-- Этого поля нет в условии
 
     public Bank(long id, String bankCountry, Currency currency, int numberOfEmployees,
                 double avrSalaryOfEmployee, long rating, long totalCapital) {
@@ -83,7 +84,7 @@ abstract public class Bank {
 
     public abstract int getMonthlyRate();
 
-    public abstract int getCommission();
+    public abstract int getCommission(); // <-- В условии было изменение abstract int getCommission(int summ);
 
     public abstract double getWithdrawal();
 

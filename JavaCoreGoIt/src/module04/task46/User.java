@@ -36,6 +36,7 @@ public class User {
                 + separator + "monthOfEmployment : " + monthOfEmployment
                 + separator + "companyName : " + companyName
                 + separator + "salary : " + salary
+                // Если ты хочешь добвплять сюда банк в развернутом виде, переопределяй туСринг в Bank и его конкретных реализациях
                 + separator + "Bank id : " + bank.getId()
                 + separator + "Bank bankCountry : " + bank.getBankCountry()
                 + separator + "Bank currency : " + bank.getCurrency()

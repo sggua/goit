@@ -46,6 +46,19 @@ public class ChinaBank extends Bank {
 
     @Override
     public int getCommission() {
+        // Как насчет написать несколько читабельней и проще
+/*
+        if (getCurrency() == Currency.USD && withdrawal <= 1000) {
+            return 3;
+        } else if (getCurrency() == Currency.USD && withdrawal > 1000) {
+            return 5;
+        } else if (getCurrency() == Currency.EUR && withdrawal <= 1000) {
+            return 10;
+        } else if (getCurrency() == Currency.EUR && withdrawal > 1000) {
+            return 11;
+        }
+*/
+
         if (getCurrency() == Currency.USD) {
             if (withdrawal <= 1000) {
                 return 3;
