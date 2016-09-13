@@ -33,7 +33,7 @@ public class BankSystemImpl implements BankSystem {
 
     @Override
     public void transferMoney(User fromUser, User toUser, int amount) {
-        if (fromUser.getBank().getCurrency().equals(toUser.getBank().getCurrency())) {
+        if (fromUser.getBank().getCurrency() == toUser.getBank().getCurrency()) {
             withdrawOfUser(fromUser, amount);
             fundUser(toUser, amount);
         } else {
