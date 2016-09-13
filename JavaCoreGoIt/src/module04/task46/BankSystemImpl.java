@@ -8,9 +8,14 @@ public class BankSystemImpl implements BankSystem {
     public void withdrawOfUser(User user, int amount) {
         Bank bank = user.getBank();
         int maxWithdrawal = bank.getLimitOfWithdrawal();
-        double commissionSum = (bank.getCommission(amount) / 100.0 + 1.0) * amount;
-        double testBalance = user.balance - amount - commissionSum;
-        if (amount + commissionSum <= maxWithdrawal) {
+        double commissionSum = (bank.getCommission(amount) / 100.0 + 1.0) * amount; // <-- ты уверен что это работает?
+        // Это сумма с коммисией amount + commission
+        // Переименуй в sumWithCommission
+
+        double testBalance = user.balance - amount - commissionSum; // а тут ты не просто amount вычитаешь а еще и commissionSum(amount + commission)
+        // убери "- amount "
+
+        if (amount + commissionSum <= maxWithdrawal) { // нужно убрать "amount +" и оставить только commissionSum
             if (testBalance >= 0) {
                 user.balance = testBalance;
             } else {

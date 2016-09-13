@@ -5,6 +5,7 @@ Create Main class with main method, where you should create 6 Users: 2 of USBank
 
  */
 
+//Удали разбиение задачи на подзадачи, оставь общее task46 только переименуй его в homework
 public class Solution {
     static void printUsers(User[] users) {
         for (User u : users) {

@@ -21,19 +21,6 @@ abstract public class Bank {
         this.totalCapital = totalCapital;
     }
 
-    @Override
-    public String toString() {
-        String separator = "\n";  //  or ";"
-        return "Bank id : " + id
-                + separator + "Bank bankCountry : " + bankCountry
-                + separator + "Bank currency : " + currency
-                + separator + "Bank numberOfEmployees : " + numberOfEmployees
-                + separator + "Bank avrSalaryOfEmployee : " + avrSalaryOfEmployee
-                + separator + "Bank rating : " + rating
-                + separator + "Bank totalCapital : " + totalCapital
-                ;
-    }
-
     public long getId() {
         return id;
     }
@@ -100,5 +87,18 @@ abstract public class Bank {
 
     public double moneyPaidMonthlyForSalary() {
         return numberOfEmployees * avrSalaryOfEmployee;
+    }
+
+    @Override
+    public String toString() {
+        String separator = "\n";  //  or ";"
+        return "Bank id : " + id
+                + separator + "Bank bankCountry : " + bankCountry
+                + separator + "Bank currency : " + currency
+                + separator + "Bank numberOfEmployees : " + numberOfEmployees
+                + separator + "Bank avrSalaryOfEmployee : " + avrSalaryOfEmployee
+                + separator + "Bank rating : " + rating
+                + separator + "Bank totalCapital : " + totalCapital
+                ;
     }
 }
