@@ -22,6 +22,12 @@ public class Course {
         this.setTeacherName(teacherName);
     }
 
+    public Course(String name, int hoursDuration, String teacherName) {
+        this.setName(name);
+        this.setHoursDuration(hoursDuration);
+        this.setTeacherName(teacherName);
+    }
+
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }

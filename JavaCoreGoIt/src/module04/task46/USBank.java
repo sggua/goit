@@ -29,7 +29,7 @@ public class USBank extends Bank {
         if (getCurrency() == Currency.EUR) {
             return 10000;
         } else if (getCurrency() == Currency.USD) {
-            return Integer.MAX_VALUE;
+            return Integer.MAX_VALUE; // или -1
         }
         return 0;
     }

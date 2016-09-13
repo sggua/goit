@@ -11,12 +11,12 @@ public class HomeWork23by20160822 {
     private static double commission = 5;  // %
 
     private static String withdrawResult(String ownerName, double withdrawal) {
-        int nameIndex = getNameIndex(ownerNames, ownerName);
+        final int nameIndex = getNameIndex(ownerNames, ownerName);
         if (nameIndex >= 0) {
-            double balanceBeforeWithdraw = balances[nameIndex];
-            double withdrawTestResult = withdrawBalance(ownerName, withdrawal);
+            final double balanceBeforeWithdraw = balances[nameIndex];
+            final double withdrawTestResult = withdrawBalance(ownerName, withdrawal);
             if (withdrawTestResult >= 0) {
-                double sumOfWithdraw = balanceBeforeWithdraw - withdrawTestResult;
+                final double sumOfWithdraw = balanceBeforeWithdraw - withdrawTestResult;
                 return ownerName + " " + sumOfWithdraw + " " + withdrawTestResult;
             }
         } else {
