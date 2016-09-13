@@ -6,9 +6,9 @@ public class BankSystemImpl implements BankSystem {
 
     @Override
     public void withdrawOfUser(User user, int amount) {
-        int maxWithdrawal = user.getBank().getLimitOfWithdrawal();
-        user.getBank().setWithdrawal(amount);
-        double commissionSum = (user.getBank().getCommission() / 100.0 + 1.0) * amount;
+        Bank bank = user.getBank();
+        int maxWithdrawal = bank.getLimitOfWithdrawal();
+        double commissionSum = (bank.getCommission(amount) / 100.0 + 1.0) * amount;
         double testBalance = user.balance - amount - commissionSum;
         if (amount + commissionSum <= maxWithdrawal) {
             if (testBalance >= 0) {

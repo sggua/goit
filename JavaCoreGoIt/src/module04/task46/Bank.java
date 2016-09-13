@@ -8,7 +8,7 @@ abstract public class Bank {
     double avrSalaryOfEmployee;
     long rating;
     long totalCapital;
-    double withdrawal;
+//    double withdrawal;
 
     public Bank(long id, String bankCountry, Currency currency, int numberOfEmployees,
                 double avrSalaryOfEmployee, long rating, long totalCapital) {
@@ -19,6 +19,19 @@ abstract public class Bank {
         this.avrSalaryOfEmployee = avrSalaryOfEmployee;
         this.rating = rating;
         this.totalCapital = totalCapital;
+    }
+
+    @Override
+    public String toString() {
+        String separator = "\n";  //  or ";"
+        return "Bank id : " + id
+                + separator + "Bank bankCountry : " + bankCountry
+                + separator + "Bank currency : " + currency
+                + separator + "Bank numberOfEmployees : " + numberOfEmployees
+                + separator + "Bank avrSalaryOfEmployee : " + avrSalaryOfEmployee
+                + separator + "Bank rating : " + rating
+                + separator + "Bank totalCapital : " + totalCapital
+                ;
     }
 
     public long getId() {
@@ -83,11 +96,7 @@ abstract public class Bank {
 
     public abstract int getMonthlyRate();
 
-    public abstract int getCommission();
-
-    public abstract double getWithdrawal();
-
-    public abstract void setWithdrawal(double withdrawal);
+    public abstract int getCommission(int sum);
 
     public double moneyPaidMonthlyForSalary() {
         return numberOfEmployees * avrSalaryOfEmployee;

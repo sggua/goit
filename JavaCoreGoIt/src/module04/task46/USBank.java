@@ -45,28 +45,18 @@ public class USBank extends Bank {
     }
 
     @Override
-    public int getCommission() {
-        if (getCurrency() == Currency.USD) {
-            if (withdrawal <= 1000) {
-                return 5;
-            } else if (withdrawal > 1000) {
-                return 7;
-            }
-        } else if (getCurrency() == Currency.EUR) {
-            if (withdrawal <= 1000) {
-                return 6;
-            } else if (withdrawal > 1000) {
-                return 8;
-            }
+    public int getCommission(int sum) {
+        if (getCurrency() == Currency.USD && sum <= 1000) {
+            return 5;
+        } else if (getCurrency() == Currency.USD && sum > 1000) {
+            return 7;
+        } else if (getCurrency() == Currency.EUR && sum <= 1000) {
+            return 6;
+        } else if (getCurrency() == Currency.EUR && sum > 1000) {
+            return 8;
+        } else {
+            return 0;
         }
-        return 0;
     }
 
-    public double getWithdrawal() {
-        return withdrawal;
-    }
-
-    public void setWithdrawal(double withdrawal) {
-        this.withdrawal = withdrawal;
-    }
 }
