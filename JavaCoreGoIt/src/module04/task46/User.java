@@ -30,19 +30,13 @@ public class User {
     @Override
     public String toString() {
         String separator = "\n";  //  or ";"
-        return "id : " + id
-                + separator + "name : " + name
-                + separator + "balance : " + balance
-                + separator + "monthOfEmployment : " + monthOfEmployment
-                + separator + "companyName : " + companyName
-                + separator + "salary : " + salary
-                + separator + "Bank id : " + bank.getId()
-                + separator + "Bank bankCountry : " + bank.getBankCountry()
-                + separator + "Bank currency : " + bank.getCurrency()
-                + separator + "Bank numberOfEmployees : " + bank.getNumberOfEmployees()
-                + separator + "Bank avrSalaryOfEmployee : " + bank.getAvrSalaryOfEmployee()
-                + separator + "Bank rating : " + bank.getRating()
-                + separator + "Bank totalCapital : " + bank.getTotalCapital()
+        return "User id : " + id
+                + separator + "User name : " + name
+                + separator + "User balance : " + balance
+                + separator + "User monthOfEmployment : " + monthOfEmployment
+                + separator + "User companyName : " + companyName
+                + separator + "User salary : " + salary
+                + separator + bank.toString()
                 ;
 
     }
