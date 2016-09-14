@@ -1,11 +1,11 @@
-package module04.task46;
+package module04.homework;
 
 /*
 Create Main class with main method, where you should create 6 Users: 2 of USBank, 2 of EUBank and 2 of ChinaBank. Run four different operations with erery User’s baalance and print its objects to console.
 
  */
 
-//Удали разбиение задачи на подзадачи, оставь общее task46 только переименуй его в homework
+//Удали разбиение задачи на подзадачи, оставь общее task46 только переименуй его в homework // ок
 public class Solution {
     static void printUsers(User[] users) {
         for (User u : users) {

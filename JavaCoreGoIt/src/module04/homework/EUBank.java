@@ -1,4 +1,4 @@
-package module04.task44;
+package module04.homework;
 
 /*
 EUBank: limit of withdrawal = 2000 if currency is USD and 2200 if currency is EUR
@@ -8,7 +8,6 @@ commission - 5% if USD and up to 1000, 7% if USD and more than 1000
 2% if EUR and up to 1000 and 4% if EUR and more than 1000
  */
 public class EUBank extends Bank {
-    double withdrawal;
 
     public EUBank(long id, String bankCountry, Currency currency, int numberOfEmployees,
                   double avrSalaryOfEmployee, long rating, long totalCapital) {
@@ -46,20 +45,21 @@ public class EUBank extends Bank {
     }
 
     @Override
-    public int getCommission() {
-        if (getCurrency() == Currency.USD) {
-            if (withdrawal <= 1000) {
-                return 5;
-            } else if (withdrawal > 1000) {
-                return 7;
-            }
-        } else if (getCurrency() == Currency.EUR) {
-            if (withdrawal <= 1000) {
-                return 2;
-            } else if (withdrawal > 1000) {
-                return 4;
-            }
+    public int getCommission(int sum) {
+
+        if (getCurrency() == Currency.USD && sum <= 1000) {
+            return 5;
+        } else if (getCurrency() == Currency.USD && sum > 1000) {
+            return 7;
+        } else if (getCurrency() == Currency.EUR && sum <= 1000) {
+            return 2;
+        } else if (getCurrency() == Currency.EUR && sum > 1000) {
+            return 4;
+        } else {
+            return 0;
         }
-        return 0;
+
     }
+
+
 }

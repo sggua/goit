@@ -1,4 +1,4 @@
-package module04.task43;
+package module04.homework;
 
 /*
  USBank: limit of withdrawal = 1000 if currency is USD and 1200 if currency is EUR
@@ -8,7 +8,6 @@ package module04.task43;
  6% if EUR and up to 1000 and 8% if EUR and more than 1000
  */
 public class USBank extends Bank {
-    double withdrawal;
 
     public USBank(long id, String bankCountry, Currency currency, int numberOfEmployees,
                   double avrSalaryOfEmployee, long rating, long totalCapital) {
@@ -30,7 +29,7 @@ public class USBank extends Bank {
         if (getCurrency() == Currency.EUR) {
             return 10000;
         } else if (getCurrency() == Currency.USD) {
-            return Integer.MAX_VALUE;
+            return Integer.MAX_VALUE; // или -1
         }
         return 0;
     }
@@ -46,20 +45,18 @@ public class USBank extends Bank {
     }
 
     @Override
-    public int getCommission() {
-        if (getCurrency() == Currency.USD) {
-            if (withdrawal <= 1000) {
-                return 5;
-            } else if (withdrawal > 1000) {
-                return 7;
-            }
-        } else if (getCurrency() == Currency.EUR) {
-            if (withdrawal <= 1000) {
-                return 6;
-            } else if (withdrawal > 1000) {
-                return 8;
-            }
+    public int getCommission(int sum) {
+        if (getCurrency() == Currency.USD && sum <= 1000) {
+            return 5;
+        } else if (getCurrency() == Currency.USD && sum > 1000) {
+            return 7;
+        } else if (getCurrency() == Currency.EUR && sum <= 1000) {
+            return 6;
+        } else if (getCurrency() == Currency.EUR && sum > 1000) {
+            return 8;
+        } else {
+            return 0;
         }
-        return 0;
     }
+
 }
