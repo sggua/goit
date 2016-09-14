@@ -20,11 +20,11 @@ public class Room {
     }
 
     @Override
-    public boolean equals(Object r) {
-        if (this == r) return true;
-        if (r == null || getClass() != r.getClass()) return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        Room room = (Room) r;
+        Room room = (Room) o;
 
         if (price != room.price) return false;
         if (persons != room.persons) return false;
