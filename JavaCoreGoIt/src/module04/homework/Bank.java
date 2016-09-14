@@ -1,4 +1,4 @@
-package module04.task45;
+package module04.homework;
 
 abstract public class Bank {
     long id;
@@ -8,6 +8,7 @@ abstract public class Bank {
     double avrSalaryOfEmployee;
     long rating;
     long totalCapital;
+//    double withdrawal;
 
     public Bank(long id, String bankCountry, Currency currency, int numberOfEmployees,
                 double avrSalaryOfEmployee, long rating, long totalCapital) {
@@ -82,9 +83,22 @@ abstract public class Bank {
 
     public abstract int getMonthlyRate();
 
-    public abstract int getCommission();
+    public abstract int getCommission(int sum);
 
     public double moneyPaidMonthlyForSalary() {
         return numberOfEmployees * avrSalaryOfEmployee;
+    }
+
+    @Override
+    public String toString() {
+        String separator = "\n";  //  or ";"
+        return "Bank id : " + id
+                + separator + "Bank bankCountry : " + bankCountry
+                + separator + "Bank currency : " + currency
+                + separator + "Bank numberOfEmployees : " + numberOfEmployees
+                + separator + "Bank avrSalaryOfEmployee : " + avrSalaryOfEmployee
+                + separator + "Bank rating : " + rating
+                + separator + "Bank totalCapital : " + totalCapital
+                ;
     }
 }

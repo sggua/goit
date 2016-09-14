@@ -1,4 +1,4 @@
-package module04.task45;
+package module04.homework;
 
 
 public enum Currency {
