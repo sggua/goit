@@ -1,21 +1,15 @@
 package module04.homework;
 
 public class BankSystemImpl implements BankSystem {
-    public BankSystemImpl() {
-    }
 
     @Override
     public void withdrawOfUser(User user, int amount) {
         Bank bank = user.getBank();
         int maxWithdrawal = bank.getLimitOfWithdrawal();
-        double sumWithCommission = (bank.getCommission(amount) / 100.0 + 1.0) * amount; // <-- ты уверен что это работает? // работает
-        // Это сумма с коммисией amount + commission // да
-        // Переименуй в sumWithCommission // ок
+        double sumWithCommission = (bank.getCommission(amount) / 100.0 + 1.0) * amount;
+        double testBalance = user.balance - sumWithCommission;
 
-        double testBalance = user.balance - sumWithCommission; // а тут ты не просто amount вычитаешь а еще и commissionSum(amount + commission)
-        // убери "- amount " // спасибо
-
-        if (sumWithCommission <= maxWithdrawal) { // нужно убрать "amount +" и оставить только commissionSum // спасибо
+        if (sumWithCommission <= maxWithdrawal) {
             if (testBalance >= 0) {
                 user.balance = testBalance;
             } else {
