@@ -1,5 +1,7 @@
 package module05.task55;
 
+import java.util.Date;
+
 public class DAOImpl implements DAO {
     @Override
     public Room save(Room room) {
@@ -21,7 +23,8 @@ public class DAOImpl implements DAO {
 
     @Override
     public Room findById(long id) {
-        System.out.println(id + " was found successfully.");
+        Room room = new Room(0, 1, 2, new Date(), "Dnipro", "Kyiv");
+        System.out.println(room.toString() + " was found successfully.");
         return null;
     }
 }
