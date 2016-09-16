@@ -37,7 +37,38 @@ public class Controller {
     }
 
     public Room[] check(API api1, API api2) {
-        return null;
+        Room[] result = new Room[100];
+        final int price = 100;
+        final int persons = 2;
+        final String hotel = "Dnipro";
+        final String city = "Kyiv";
+        Room[] api1Rooms = api1.findRooms(price, persons, city, hotel);
+        Room[] api2Rooms = api2.findRooms(price, persons, city, hotel);
+        int i = 0;
+        if (api1Rooms != null && api2Rooms != null && api1Rooms.length > 0 && api2Rooms.length > 0) {
+            for (Room room1 : api1Rooms) {
+                if (existsIn(room1, api2Rooms)) {
+                    if (i >= result.length) {
+                        Room[] tmpResult = new Room[result.length + i + 100];
+                        System.arraycopy(result, 0, tmpResult, 0, result.length);
+                        result = tmpResult;
+                    }
+                    result[i++] = room1;
+                }
+            }
+        }
+        Room[] resultFinal = new Room[i];
+        System.arraycopy(result, 0, resultFinal, 0, i);
+        return resultFinal;
+    }
+
+    private boolean existsIn(Room room, Room[] rooms) {
+        for (Room r : rooms) {
+            if (r.equals(room) && r.getHotelName().equals(room.getHotelName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
