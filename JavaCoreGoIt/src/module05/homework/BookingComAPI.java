@@ -35,7 +35,11 @@ public class BookingComAPI implements API {
     }
 
     @Override
-    public Room[] getAll() {
+    public Room[] getRooms() {
         return rooms;
+    }
+
+    public String getName() {
+        return "BookingComAPI";
     }
 }

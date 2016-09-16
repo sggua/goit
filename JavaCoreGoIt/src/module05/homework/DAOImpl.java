@@ -6,7 +6,7 @@ public class DAOImpl implements DAO {
     @Override
     public Room save(Room room) {
         System.out.println(room.toString() + " saved successfully.");
-        return null;
+        return room;
     }
 
     @Override
@@ -18,13 +18,13 @@ public class DAOImpl implements DAO {
     @Override
     public Room update(Room room) {
         System.out.println(room.toString() + " updated successfully.");
-        return null;
+        return room;
     }
 
     @Override
     public Room findById(long id) {
         Room room = new Room(0, 1, 2, new Date(), "Dnipro", "Kyiv");
         System.out.println(room.toString() + " was found successfully.");
-        return null;
+        return room;
     }
 }

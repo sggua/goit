@@ -15,70 +15,44 @@ Room[] check(API api1, API api2)
 Chech how many the same rooms two different apis return
  */
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Controller {
-    private API apis[] = {new BookingComAPI(), new GoogleAPI(), new TripAdvisorAPI()};
+    private API apis[];
 
 
-    public Room[] requstRooms(int price, int persons, String city, String hotel) {
-        Room[] result = new Room[0];
-        DAO dao = new DAOImpl();
-        for (API api : apis) {
-            Room[] rooms = api.findRooms(price, persons, city, hotel);
-            if (rooms != null && rooms.length > 0) {
-                Room[] tmpResult = new Room[result.length + rooms.length];
-                System.arraycopy(result, 0, tmpResult, 0, result.length);
-                System.arraycopy(rooms, 0, tmpResult, result.length, rooms.length);
-                result = tmpResult;
-            }
-        }
-        for (Room room : result) {
-            dao.save(room);
-        }
-        return result;
+    public Controller(API[] apis) {
+        this.apis = apis;
     }
 
-    public Room[] check(API api1, API api2) {
-        Room[] result = new Room[100];
-
-        Room[] api1Rooms = api1.getAll();
-        Room[] api2Rooms = api2.getAll();
-
-        /*        or
-
-        final int price = 100;
-        final int persons = 2;
-        final String hotel = "Dnipro";
-        final String city = "Kyiv";
-        Room[] api1Rooms = api1.findRooms(price, persons, city, hotel);
-        Room[] api2Rooms = api2.findRooms(price, persons, city, hotel);
-
-         */
-
-        int i = 0;
-        if (api1Rooms != null && api2Rooms != null && api1Rooms.length > 0 && api2Rooms.length > 0) {
-            for (Room room1 : api1Rooms) {
-                if (existsIn(room1, api2Rooms)) {
-                    if (i >= result.length) {
-                        Room[] tmpResult = new Room[result.length + i + 100];
-                        System.arraycopy(result, 0, tmpResult, 0, result.length);
-                        result = tmpResult;
-                    }
-                    result[i++] = room1;
-                }
-            }
+    public Room[] requstRooms(int price, int persons, String city, String hotel) {
+        List<Room> result = new ArrayList<>();
+        for (API api : apis) {
+            Room[] rooms = api.findRooms(price, persons, city, hotel);
+            result.addAll(Arrays.asList(rooms));
         }
-        Room[] resultFinal = new Room[i];
-        System.arraycopy(result, 0, resultFinal, 0, i);
+        Room[] resultFinal = result.toArray(new Room[result.size()]);
+        DAO dao = new DAOImpl();
+        for (Room room : resultFinal) {
+            dao.save(room);
+        }
         return resultFinal;
     }
 
-    private boolean existsIn(Room room, Room[] rooms) {
-        for (Room r : rooms) {
-            if (r.equals(room) && r.getHotelName().equals(room.getHotelName())) {
-                return true;
+    public Room[] check(API api1, API api2) {
+        List<Room> result = new ArrayList<>();
+        Room[] api1Rooms = api1.getRooms();
+        Room[] api2Rooms = api2.getRooms();
+        for (Room room1 : api1Rooms) {
+            for (Room room2 : api2Rooms) {
+                if (room1.equals(room2) && room1.getHotelName().equals(room2.getHotelName())) {
+                    result.add(room1);
+                    break;
+                }
             }
         }
-        return false;
+        return result.toArray(new Room[result.size()]);
     }
-
 }

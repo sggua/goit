@@ -19,46 +19,6 @@ public class Room {
         this.cityName = cityName;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Room room = (Room) o;
-
-        if (price != room.price) return false;
-        if (persons != room.persons) return false;
-        if (cityName != null) {
-            return cityName.equals(room.cityName);
-        } else {
-            return room.cityName == null;
-        }
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + price;
-        result = 31 * result + persons;
-        if (dateAvailableFrom != null) {
-            result = 31 * result + dateAvailableFrom.hashCode();
-        } else {
-            result = 31 * result + 0;
-        }
-        if (hotelName != null) {
-            result = 31 * result + hotelName.hashCode();
-        } else {
-            result = 31 * result + 0;
-        }
-        if (cityName != null) {
-            result = 31 * result + cityName.hashCode();
-        } else {
-            result = 31 * result + 0;
-        }
-        return result;
-    }
-
     public long getId() {
         return id;
     }
@@ -106,4 +66,38 @@ public class Room {
     public void setCityName(String cityName) {
         this.cityName = cityName;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Room room = (Room) o;
+
+        if (price != room.price) return false;
+        if (persons != room.persons) return false;
+        return cityName.equals(room.cityName);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = price;
+        result = 31 * result + persons;
+        result = 31 * result + cityName.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Room {" +
+                "id = " + id +
+                ", price = " + price +
+                ", persons = " + persons +
+                ", dateAvailableFrom = " + dateAvailableFrom +
+                ", hotelName = '" + hotelName + "'" +
+                ", cityName = '" + cityName + "'" +
+                "}";
+    }
+
 }
