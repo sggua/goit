@@ -1,4 +1,4 @@
-package module05.task56;
+package module05.homework;
 
 
 /*
@@ -39,12 +39,21 @@ public class Controller {
 
     public Room[] check(API api1, API api2) {
         Room[] result = new Room[100];
+
+        Room[] api1Rooms = api1.getAll();
+        Room[] api2Rooms = api2.getAll();
+
+        /*        or
+
         final int price = 100;
         final int persons = 2;
         final String hotel = "Dnipro";
         final String city = "Kyiv";
         Room[] api1Rooms = api1.findRooms(price, persons, city, hotel);
         Room[] api2Rooms = api2.findRooms(price, persons, city, hotel);
+
+         */
+
         int i = 0;
         if (api1Rooms != null && api2Rooms != null && api1Rooms.length > 0 && api2Rooms.length > 0) {
             for (Room room1 : api1Rooms) {

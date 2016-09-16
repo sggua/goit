@@ -1,4 +1,4 @@
-package module05.task56;
+package module05.homework;
 
 import java.util.Date;
 
@@ -32,5 +32,10 @@ public class TripAdvisorAPI implements API {
         Room[] resultFinal = new Room[i];
         System.arraycopy(result, 0, resultFinal, 0, i);
         return resultFinal;
+    }
+
+    @Override
+    public Room[] getAll() {
+        return rooms;
     }
 }
