@@ -8,8 +8,8 @@ public class GoogleAPI implements API {
     public GoogleAPI() {
         rooms = new Room[5];
         rooms[0] = new Room(0, 100, 1, new Date(System.currentTimeMillis()), "Astoria", "Salerno");
-        rooms[1] = new Room(1, 120, 1, new Date(System.currentTimeMillis()), "Astoria", "Salerno");
-        rooms[2] = new Room(2, 150, 1, new Date(System.currentTimeMillis()), "Astoria", "Napoli");
+        rooms[1] = new Room(1, 120, 1, new Date(System.currentTimeMillis()), "Astoria", "Salerno"); // differs from BookingCom
+        rooms[2] = new Room(2, 150, 1, new Date(System.currentTimeMillis()), "Astoria", "Napoli");  // differs from BookingCom and TripAdvisor
         rooms[3] = new Room(3, 200, 2, new Date(System.currentTimeMillis()), "Astoria", "Napoli");
         rooms[4] = new Room(4, 200, 2, new Date(System.currentTimeMillis()), "Astoria", "Napoli");
     }

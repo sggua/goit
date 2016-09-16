@@ -14,6 +14,7 @@ Found rooms create to DB
 Room[] check(API api1, API api2)
 Chech how many the same rooms two different apis return
  */
+
 public class Controller {
     private API apis[] = {new BookingComAPI(), new GoogleAPI(), new TripAdvisorAPI()};
 
