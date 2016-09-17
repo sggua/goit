@@ -83,25 +83,12 @@ public class ArrayUtils {
     }
 
     private static int[] findEvenElements(int[] array) {
-        int[] result = new int[array.length];
-        int i = 0;
-        for (int number : array) {
-            if (number % 2 == 0) result[i++] = number;
-        }
-        array = new int[i];
-        System.arraycopy(result, 0, array, 0, i);
-        return array;
-
-        /* or
-        List<Integer> res = new ArrayList<>();
-        for (int i : array) {
-            if (i % 2 == 0) res.add(i);
-        }
-        Integer[] resultInt = res.toArray(new Integer[res.size()]);
+        List<Integer> result = new ArrayList<>();
+        for (int i : array) if (i % 2 == 0) result.add(i);
+        Integer[] resultInt = result.toArray(new Integer[result.size()]);
         int[] resultFinal = new int[resultInt.length];
-        System.arraycopy(resultInt, 0, resultFinal, 0, resultInt.length);
+        for (int i = 0; i < resultInt.length; i++) resultFinal[i] = resultInt[i];
         return resultFinal;
-         */
     }
 
     public static void main(String[] args) {
