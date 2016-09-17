@@ -1,4 +1,4 @@
-package module06.task66;
+package module06.homework;
 
 public class User {
     long id;

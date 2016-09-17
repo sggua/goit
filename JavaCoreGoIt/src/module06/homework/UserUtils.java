@@ -1,4 +1,4 @@
-package module06.task66;
+package module06.homework;
 
 import java.util.ArrayList;
 import java.util.List;
