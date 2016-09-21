@@ -42,7 +42,7 @@ public class UserUtils {
     User[] deleteEmptyUsers(User[] users) {
         List<User> result = new ArrayList<>();
         for (User user : users) {
-            if (user != null && !user.firstName.equals("") && !user.lastName.equals("")) {
+            if (user != null && !"".equals(user.firstName) && !"".equals(user.lastName)) {
                 result.add(user);
             }
         }
