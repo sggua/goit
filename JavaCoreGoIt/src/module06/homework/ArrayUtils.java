@@ -3,7 +3,7 @@ package module06.homework;
 import java.util.ArrayList;
 import java.util.List;
 
-final public class ArrayUtils {
+public final class ArrayUtils {
 
     public static int getSum(int[] numbers) {
         int sum = 0;
@@ -36,6 +36,18 @@ final public class ArrayUtils {
     public static int getSecondLargest(int[] numbers) {
         int max = numbers[0];
         int result = Integer.MIN_VALUE;
+
+        // Вот так будет немного меньше кода
+        for (int value : numbers) {
+            if (value > max) {
+                result = max;
+                max = value;
+            }
+            if (result < value && value < max) {
+                result = value;
+            }
+        }
+/*
         if (numbers.length > 1) {
             for (int i = 1; i < numbers.length; i++) {
                 if (numbers[i] > result && numbers[i] < max) {
@@ -46,6 +58,7 @@ final public class ArrayUtils {
                 }
             }
         }
+*/
         return result;
     }
 

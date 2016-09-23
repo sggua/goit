@@ -1,6 +1,8 @@
 package module06.homework;
 
 public class User {
+
+    // Почему поля публичные и соответственно нет гетеров?
     long id;
     String firstName;
     String lastName;
