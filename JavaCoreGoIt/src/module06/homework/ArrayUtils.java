@@ -37,7 +37,6 @@ public final class ArrayUtils {
         int max = numbers[0];
         int result = Integer.MIN_VALUE;
 
-        // Вот так будет немного меньше кода
         for (int value : numbers) {
             if (value > max) {
                 result = max;
@@ -47,18 +46,6 @@ public final class ArrayUtils {
                 result = value;
             }
         }
-/*
-        if (numbers.length > 1) {
-            for (int i = 1; i < numbers.length; i++) {
-                if (numbers[i] > result && numbers[i] < max) {
-                    result = numbers[i];
-                } else if (numbers[i] > max) {
-                    result = max;
-                    max = numbers[i];
-                }
-            }
-        }
-*/
         return result;
     }
 

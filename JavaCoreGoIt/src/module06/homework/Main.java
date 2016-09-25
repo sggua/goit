@@ -10,11 +10,12 @@ public class Main {
                 new User(1, "Elza", "Smith", 1200, 100),
                 new User(2, "Elza", "Smith", 1200, 100),
                 new User(3, "Marek", "Woitow", 700, 200),
-                new User(4, "", "", 700, 200),                  // empty user
+                new User(4, "", "", 700, 200),
+                new User(5, "", "", 700, 200),                  // dup user
                 null,                                           // empty user
-                new User(6, "John", "Scott", 2000, 2000),
-                new User(7, "Walter", "Volkenstein", 1500, 700),
-                null                                            // empty user
+                new User(7, "John", "Scott", 2000, 2000),
+                new User(8, "Walter", "Volkenstein", 1500, 700),
+                null
         };
 
 
