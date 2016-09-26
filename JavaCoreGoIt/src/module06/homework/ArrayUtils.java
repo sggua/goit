@@ -94,7 +94,7 @@ public final class ArrayUtils {
         return result;
     }
 
-    static int[] addValue(int[] array, int value) {
+    private static int[] addValue(int[] array, int value) {
         int[] result = new int[0];
         result = Arrays.copyOf(array, array.length + 1);
         result[result.length - 1] = value;
