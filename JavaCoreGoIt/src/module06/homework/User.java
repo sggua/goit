@@ -16,40 +16,6 @@ public class User {
         this.balance = balance;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                id +
-                ", " + firstName +
-                ", " + lastName +
-                ", " + salary +
-                ", " + balance +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (salary != user.salary) return false;
-        if (balance != user.balance) return false;
-        if (!firstName.equals(user.firstName)) return false;
-        return lastName.equals(user.lastName);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = firstName.hashCode();
-        result = 31 * result + lastName.hashCode();
-        result = 31 * result + salary;
-        result = 31 * result + balance;
-        return result;
-    }
-
     public long getId() {
         return id;
     }
@@ -89,4 +55,40 @@ public class User {
     public void setBalance(int balance) {
         this.balance = balance;
     }
+
+    // Куда из сравнения делось поле id?
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (salary != user.salary) return false;
+        if (balance != user.balance) return false;
+        if (!firstName.equals(user.firstName)) return false;
+        return lastName.equals(user.lastName);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
+        result = 31 * result + salary;
+        result = 31 * result + balance;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                id +
+                ", " + firstName +
+                ", " + lastName +
+                ", " + salary +
+                ", " + balance +
+                '}';
+    }
+
 }

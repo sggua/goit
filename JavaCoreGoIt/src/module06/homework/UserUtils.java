@@ -5,27 +5,28 @@ import java.util.Arrays;
 public class UserUtils {
 
     static User[] paySalaryToUsers(User[] users) {
+        users = uniqueUsers(users);
         for (User user : users) {
-            if (user != null) {
-                user.setBalance(user.getBalance() + user.getSalary());
-            }
+            user.setBalance(user.getBalance() + user.getSalary());
         }
         return users;
     }
 
     static long[] getUsersId(User[] users) {
-        User[] usersUnique = uniqueUsers(users);
-        long[] result = new long[usersUnique.length];
-        for (int i = 0; i < usersUnique.length; i++) {
-            result[i] = usersUnique[i].getId();
+        users = uniqueUsers(users);
+        long[] result = new long[users.length];
+        for (int i = 0; i < users.length; i++) {
+            result[i] = users[i].getId();
         }
         return result;
     }
 
     static User[] uniqueUsers(User[] users) {
+        users = deleteEmptyUsers(users);
         User[] result = new User[0];
         for (User user : users) {
-            if (user != null && !containsUser(result, user)) {
+            boolean containsUser = containsUser(result, user);
+            if (!containsUser) {
                 result = addUser(result, user);
             }
         }
@@ -33,11 +34,11 @@ public class UserUtils {
     }
 
     static User[] usersWithContitionalBalance(User[] users, int balance) {
-        User[] usersUnique = uniqueUsers(users);
+        users = uniqueUsers(users);
         User[] result = new User[0];
-        for (User user : usersUnique) {
-            if (user != null && user.getBalance() == balance) {
-                result = addUser(result,user);
+        for (User user : users) {
+            if (user.getBalance() == balance) {
+                result = addUser(result, user);
             }
         }
         return result;
@@ -47,7 +48,7 @@ public class UserUtils {
         User[] result = new User[0];
         for (User user : users) {
             if (user != null) {
-                result = addUser(result,user);
+                result = addUser(result, user);
             }
         }
         return result;
@@ -61,8 +62,10 @@ public class UserUtils {
     }
 
     static boolean containsUser(User[] users, User user) {
-        for (User u : users) {
-            if (u.equals(user)) return true;
+        for (User key : users) {
+            if (key.equals(user)) {
+                return true;
+            }
         }
         return false;
     }

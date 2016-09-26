@@ -5,6 +5,30 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+        User user0 = new User(0, "Peter", "Green", 1000, 200);
+        User user1 = new User(1, "Elza", "Smith", 1200, 100);
+        User user2 = new User(2, "Elza", "Smith", 1200, 100);
+        User user3 = new User(3, "Marek", "Woitow", 700, 200);
+        User user4 = new User(4, "", "", 700, 200);
+        User user5 = new User(5, "", "", 700, 200);
+        User user7 = new User(7, "John", "Scott", 2000, 2000);
+        User user8 = new User(8, "Walter", "Volkenstein", 1500, 700);
+
+        User[] users = new User[]{
+                user0, // it's not duplicated
+                user1, // it's not duplicated
+                user2, // it's not duplicated
+                user3, // it's not duplicated
+                user4, // it's not duplicated
+                user5, // it's duplicated
+                user5, // it's duplicated
+                null, // it's empty user
+                user7, // it's not duplicated
+                user8, // it's not duplicated
+                null // it's empty user
+        };
+
+/*
         User[] users = {
                 new User(0, "Peter", "Green", 1000, 200),
                 new User(1, "Elza", "Smith", 1200, 100),
@@ -17,7 +41,7 @@ public class Main {
                 new User(8, "Walter", "Volkenstein", 1500, 700),
                 null
         };
-
+*/
 
         System.out.println("// task 6.2\n");
 

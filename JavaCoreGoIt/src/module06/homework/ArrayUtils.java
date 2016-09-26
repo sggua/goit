@@ -1,7 +1,6 @@
 package module06.homework;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public final class ArrayUtils {
 
@@ -72,22 +71,34 @@ public final class ArrayUtils {
     }
 
     public static int[] reverse(int[] array) {
-        int[] result = new int[array.length];
-        for (int i = 0; i < (array.length / 2 + array.length % 2); i++) {
-            int secondIndex = array.length - 1 - i;
-            result[i] = array[secondIndex];
-            result[secondIndex] = array[i];
+        for (int index1 = 0; index1 < array.length / 2; index1++) {
+            int index2 = array.length - 1 - index1;
+            swap(array, index1, index2);
+        }
+        return array;
+    }
+
+    private static void swap(int[] array, int index1, int index2) {
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+    }
+
+    public static int[] findEvenElements(int[] array) {
+        int[] result = new int[0];
+        for (int value : array) {
+            if (value % 2 == 0) {
+                result = addValue(result, value);
+            }
         }
         return result;
     }
 
-    public static int[] findEvenElements(int[] array) {
-        List<Integer> result = new ArrayList<>();
-        for (int i : array) if (i % 2 == 0) result.add(i);
-        Integer[] resultInt = result.toArray(new Integer[result.size()]);
-        int[] resultFinal = new int[resultInt.length];
-        for (int i = 0; i < resultInt.length; i++) resultFinal[i] = resultInt[i];
-        return resultFinal;
+    static int[] addValue(int[] array, int value) {
+        int[] result = new int[0];
+        result = Arrays.copyOf(array, array.length + 1);
+        result[result.length - 1] = value;
+        return result;
     }
 
 }
