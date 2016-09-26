@@ -56,7 +56,6 @@ public class User {
         this.balance = balance;
     }
 
-    // Куда из сравнения делось поле id?
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -64,6 +63,7 @@ public class User {
 
         User user = (User) o;
 
+        if (id != user.id) return false;
         if (salary != user.salary) return false;
         if (balance != user.balance) return false;
         if (!firstName.equals(user.firstName)) return false;
@@ -73,7 +73,8 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = firstName.hashCode();
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + firstName.hashCode();
         result = 31 * result + lastName.hashCode();
         result = 31 * result + salary;
         result = 31 * result + balance;
